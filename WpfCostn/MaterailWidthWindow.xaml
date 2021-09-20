@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfCostn.MatWidthWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Material Width" Height="111" Width="403" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" ResizeMode="NoResize" Icon="costn.ico" Loaded="Window_Loaded">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Height="58" Margin="10,10,0,0" VerticalAlignment="Top" Width="375">
+            <StackPanel Height="30" Orientation="Horizontal">
+                <TextBlock TextWrapping="Wrap" Text="Present Cloth Width" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                <TextBox x:Name="txtPresent" TextWrapping="Wrap" Width="57" VerticalAlignment="Center" Margin="0,4,16,4" HorizontalContentAlignment="Right"/>
+                <TextBlock TextWrapping="Wrap" Text="Proposed Cloth Width" VerticalAlignment="Center" Margin="0,7.02,6,6.98"/>
+                <TextBox x:Name="txtProposed" TextWrapping="Wrap" Width="57" VerticalAlignment="Center" Margin="0,4.02,0,3.98" HorizontalContentAlignment="Right"/>
+            </StackPanel>
+            <StackPanel Height="30" Orientation="Horizontal">
+                <Button x:Name="btnOk" Content="OK" Width="75" VerticalAlignment="Center" Margin="120,0,10,0" Click="btnOk_Click"/>
+                <Button x:Name="btnExit" Content="Exit" Width="75" VerticalAlignment="Center" Margin="0,4,10,4" Click="btnExit_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>

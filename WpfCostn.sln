@@ -1,0 +1,98 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfCostn", "WpfCostn\WpfCostn.csproj", "{E5720033-4A7B-40F4-BBD5-276FB131D632}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B93DA326-B6E6-4EF6-A813-A0D4A7FABB72} = {B93DA326-B6E6-4EF6-A813-A0D4A7FABB72}
+		{8E272152-6F9B-4E58-9933-737ED11D1570} = {8E272152-6F9B-4E58-9933-737ED11D1570}
+		{E720128A-6BC1-459F-B301-7F1F8D0BC8DA} = {E720128A-6BC1-459F-B301-7F1F8D0BC8DA}
+		{61E354EE-DA4B-437E-BE1D-7BAD10A203B6} = {61E354EE-DA4B-437E-BE1D-7BAD10A203B6}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7500F6FC-B132-4C33-984D-07A841BE4B96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfClassLibrary", "..\WpfClassLibrary\WpfClassLibrary\WpfClassLibrary.csproj", "{8E272152-6F9B-4E58-9933-737ED11D1570}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfDependancy", "..\WpfDependancy\WpfDependancy\WpfDependancy.csproj", "{B93DA326-B6E6-4EF6-A813-A0D4A7FABB72}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8E272152-6F9B-4E58-9933-737ED11D1570} = {8E272152-6F9B-4E58-9933-737ED11D1570}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfWgmateControlLibrary", "..\WpfWgmateControlLibrary\WpfWgmateControlLibrary\WpfWgmateControlLibrary.csproj", "{E720128A-6BC1-459F-B301-7F1F8D0BC8DA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B93DA326-B6E6-4EF6-A813-A0D4A7FABB72} = {B93DA326-B6E6-4EF6-A813-A0D4A7FABB72}
+		{8E272152-6F9B-4E58-9933-737ED11D1570} = {8E272152-6F9B-4E58-9933-737ED11D1570}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfReportLibrary", "..\WpfReportLibrary\WpfReportLibrary\WpfReportLibrary.csproj", "{61E354EE-DA4B-437E-BE1D-7BAD10A203B6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B93DA326-B6E6-4EF6-A813-A0D4A7FABB72} = {B93DA326-B6E6-4EF6-A813-A0D4A7FABB72}
+		{8E272152-6F9B-4E58-9933-737ED11D1570} = {8E272152-6F9B-4E58-9933-737ED11D1570}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Win32 = Debug|Win32
+		Release|Any CPU = Release|Any CPU
+		Release|Win32 = Release|Win32
+		Template|Any CPU = Template|Any CPU
+		Template|Win32 = Template|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5720033-4A7B-40F4-BBD5-276FB131D632}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5720033-4A7B-40F4-BBD5-276FB131D632}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5720033-4A7B-40F4-BBD5-276FB131D632}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{E5720033-4A7B-40F4-BBD5-276FB131D632}.Debug|Win32.Build.0 = Debug|Any CPU
+		{E5720033-4A7B-40F4-BBD5-276FB131D632}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5720033-4A7B-40F4-BBD5-276FB131D632}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5720033-4A7B-40F4-BBD5-276FB131D632}.Release|Win32.ActiveCfg = Release|Any CPU
+		{E5720033-4A7B-40F4-BBD5-276FB131D632}.Template|Any CPU.ActiveCfg = Release|Any CPU
+		{E5720033-4A7B-40F4-BBD5-276FB131D632}.Template|Any CPU.Build.0 = Release|Any CPU
+		{E5720033-4A7B-40F4-BBD5-276FB131D632}.Template|Win32.ActiveCfg = Release|Any CPU
+		{8E272152-6F9B-4E58-9933-737ED11D1570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E272152-6F9B-4E58-9933-737ED11D1570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E272152-6F9B-4E58-9933-737ED11D1570}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{8E272152-6F9B-4E58-9933-737ED11D1570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E272152-6F9B-4E58-9933-737ED11D1570}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E272152-6F9B-4E58-9933-737ED11D1570}.Release|Win32.ActiveCfg = Release|Any CPU
+		{8E272152-6F9B-4E58-9933-737ED11D1570}.Template|Any CPU.ActiveCfg = Release|Any CPU
+		{8E272152-6F9B-4E58-9933-737ED11D1570}.Template|Any CPU.Build.0 = Release|Any CPU
+		{8E272152-6F9B-4E58-9933-737ED11D1570}.Template|Win32.ActiveCfg = Release|Any CPU
+		{B93DA326-B6E6-4EF6-A813-A0D4A7FABB72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B93DA326-B6E6-4EF6-A813-A0D4A7FABB72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B93DA326-B6E6-4EF6-A813-A0D4A7FABB72}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{B93DA326-B6E6-4EF6-A813-A0D4A7FABB72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B93DA326-B6E6-4EF6-A813-A0D4A7FABB72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B93DA326-B6E6-4EF6-A813-A0D4A7FABB72}.Release|Win32.ActiveCfg = Release|Any CPU
+		{B93DA326-B6E6-4EF6-A813-A0D4A7FABB72}.Template|Any CPU.ActiveCfg = Release|Any CPU
+		{B93DA326-B6E6-4EF6-A813-A0D4A7FABB72}.Template|Any CPU.Build.0 = Release|Any CPU
+		{B93DA326-B6E6-4EF6-A813-A0D4A7FABB72}.Template|Win32.ActiveCfg = Release|Any CPU
+		{E720128A-6BC1-459F-B301-7F1F8D0BC8DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E720128A-6BC1-459F-B301-7F1F8D0BC8DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E720128A-6BC1-459F-B301-7F1F8D0BC8DA}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{E720128A-6BC1-459F-B301-7F1F8D0BC8DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E720128A-6BC1-459F-B301-7F1F8D0BC8DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E720128A-6BC1-459F-B301-7F1F8D0BC8DA}.Release|Win32.ActiveCfg = Release|Any CPU
+		{E720128A-6BC1-459F-B301-7F1F8D0BC8DA}.Template|Any CPU.ActiveCfg = Release|Any CPU
+		{E720128A-6BC1-459F-B301-7F1F8D0BC8DA}.Template|Any CPU.Build.0 = Release|Any CPU
+		{E720128A-6BC1-459F-B301-7F1F8D0BC8DA}.Template|Win32.ActiveCfg = Release|Any CPU
+		{61E354EE-DA4B-437E-BE1D-7BAD10A203B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61E354EE-DA4B-437E-BE1D-7BAD10A203B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61E354EE-DA4B-437E-BE1D-7BAD10A203B6}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{61E354EE-DA4B-437E-BE1D-7BAD10A203B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61E354EE-DA4B-437E-BE1D-7BAD10A203B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61E354EE-DA4B-437E-BE1D-7BAD10A203B6}.Release|Win32.ActiveCfg = Release|Any CPU
+		{61E354EE-DA4B-437E-BE1D-7BAD10A203B6}.Template|Any CPU.ActiveCfg = Release|Any CPU
+		{61E354EE-DA4B-437E-BE1D-7BAD10A203B6}.Template|Any CPU.Build.0 = Release|Any CPU
+		{61E354EE-DA4B-437E-BE1D-7BAD10A203B6}.Template|Win32.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal

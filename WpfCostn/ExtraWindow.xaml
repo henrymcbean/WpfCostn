@@ -1,0 +1,9 @@
+﻿<Window x:Class="WpfCostn.ExtraWindow"
+        xmlns:lib="clr-namespace:WpfWgmateControlLibrary;assembly=WpfWgmateControlLibrary"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Extras" Height="432" Width="609" WindowStartupLocation="CenterOwner" Loaded="Window_Loaded" Icon="wcostn.png" ResizeMode="NoResize" ShowInTaskbar="False">
+    <Grid Margin="0,0,0,-6">
+        <lib:CostnExtrasControl Name="uscExtra"/>
+    </Grid>
+</Window>

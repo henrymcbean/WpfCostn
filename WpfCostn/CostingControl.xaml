@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="WpfCostn.CostingControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="173" Width="278">
+    <Grid Margin="0,0,0,19">
+        <StackPanel Height="158" Margin="10,10,0,-7" VerticalAlignment="Top">
+            <StackPanel Height="23">
+                <TextBlock TextWrapping="Wrap" Text="Entering Costing" Margin="87,0,0,0" FontSize="14"/>
+            </StackPanel>
+            <StackPanel Height="96" Margin="0,0,0,0">
+                <StackPanel Height="30" Orientation="Horizontal" Margin="0,0,0,0">
+                    <TextBlock TextWrapping="Wrap" Text="Net Costing" VerticalAlignment="Center" Margin="0,7,20,7" Width="122" HorizontalAlignment="Right"/>
+                    <TextBox x:Name="txtNet" TextWrapping="Wrap" Width="112" VerticalAlignment="Center" Margin="0,4"/>
+                </StackPanel>
+                <StackPanel Height="30" Orientation="Horizontal" Margin="0,0,0,0">
+                    <TextBlock TextWrapping="Wrap" Text="Increase By" VerticalAlignment="Center" Margin="0,7.02,20,6.98" Width="122"/>
+                    <TextBox x:Name="txtIncreae" TextWrapping="Wrap" Width="50" VerticalAlignment="Center" Margin="0,4" HorizontalAlignment="Right"/>
+                </StackPanel>
+                <StackPanel Height="30" Orientation="Horizontal" Margin="0,0,0,0">
+                    <TextBlock TextWrapping="Wrap" Text="Gross Costing" VerticalAlignment="Center" Margin="0,7.04,20,6.96" Width="122"/>
+                    <TextBox x:Name="txtGross" TextWrapping="Wrap" Width="112" VerticalAlignment="Center" Margin="0,4.04,0,3.96" HorizontalAlignment="Right"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Height="30" Orientation="Horizontal" Margin="0,0,32,0">
+                <Button x:Name="btnCancel" Content="Cancel" Width="95" Margin="0,0,20,0"/>
+                <Button x:Name="btnApply" Content="Apply to Costing" Width="112"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,34 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml" x:Class="WpfCostn.OverHeadsControl" 
+             mc:Ignorable="d" Width="440.507" Height="441.772" Loaded="UserControl_Loaded">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Height="422" Margin="10,10,0,0" VerticalAlignment="Top" Width="421">
+            <StackPanel Height="352">
+                <c1:C1DataGrid x:Name="Grid1" Height="349" RowHeight="22px" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Visible" AutoGenerateColumns="False" GridLinesVisibility="All" SelectionMode="SingleRow" CanUserSelectByDragging="False" RowHeaderWidth="0">
+                    <c1:C1DataGrid.Columns>
+                        <c1:DataGridTextColumn Binding="{Binding OVHDescr, Mode=TwoWay}" Header="Description" Width="260px" EditOnSelection="True" AllowNull="True" CanUserResizeRows="True"/>
+                        <c1:DataGridTextColumn Binding="{Binding OVHPercent, Mode=TwoWay}"  Format="0.00" Header="%" Width="60px" HorizontalAlignment="Right" EditOnSelection="True" AllowNull="True" CanUserResizeRows="True"/>
+                        <c1:DataGridTextColumn Binding="{Binding OVHAmount, Mode=TwoWay}"  Format="0.00" Header="Amount" Width="80px" HorizontalAlignment="Right" EditOnSelection="True" AllowNull="True" CanUserResizeRows="True"/>
+                    </c1:C1DataGrid.Columns>
+                </c1:C1DataGrid>
+            </StackPanel>
+            <StackPanel Height="30" Orientation="Horizontal" Margin="272,0,0,0">
+                <TextBlock TextWrapping="Wrap" Text="Total" VerticalAlignment="Center" Margin="0,7" Width="40"/>
+                <TextBlock x:Name="txtTotal" TextWrapping="Wrap" Width="92" VerticalAlignment="Center" Margin="0,7" Background="LightGray" Height="18"/>
+            </StackPanel>
+            <StackPanel Height="30" Orientation="Horizontal">
+                <Button x:Name="btnCancel" Content="Cancel" Width="88" Height="24" Margin="0,3,10,3" Click="btnCancel_Click"/>
+                <Button x:Name="btnSave" Content="Save" Width="88" Height="24" Margin="0,3,10,3" Click="btnSave_Click"/>
+                <Button x:Name="btnEdit" Content="Edit" Width="88" Height="24" Margin="0,3,10,3" Click="btnEdit_Click"/>
+                <xctk:DropDownButton x:Name="drpdwnCopy" Height="24" Width="88" Margin="0,0,0,4" Content="Copy From">
+                </xctk:DropDownButton>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,361 @@
+﻿<UserControl Name="Costn" x:Class="WpfCostn.EnterCostnControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml" 
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:lib="clr-namespace:WpfWgmateControlLibrary;assembly=WpfWgmateControlLibrary"
+        xmlns:cc="clr-namespace:WpfCostn;assembly=WpfCostn"
+        xmlns:local="clr-namespace:WpfCostn"
+        Height="654" Width="910" Loaded="Window_Loaded">
+    <UserControl.Resources>
+        <Style x:Key="LableBorderStyle" TargetType="Border">
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="CornerRadius" Value="3" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="CharacterCasing" Value="Upper"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid HorizontalAlignment="Left" Width="909">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="66" Margin="4,4,0,4" VerticalAlignment="Top" Width="895">
+            <StackPanel HorizontalAlignment="Left" Width="895" Margin="0,0,3,0" Height="65" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal" Height="32" Margin="3,0,0,2">
+                    <TextBlock Text="Style" Height="22" Width="36" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="txtStyle" TextWrapping="Wrap" Text="" Width="121" VerticalAlignment="Center" Margin="0" LostFocus="txtStyle_LostFocus" TextChanged="txtStyle_TextChanged" TabIndex="0" MaxLength="13" Height="22"/>
+                    <xctk:DropDownButton Name="drpdwnStyle" Height="22" Width="16" Margin="0,0,8,0" TabIndex="1" MaxDropDownHeight="520">
+                        <xctk:DropDownButton.DropDownContent>
+                            <lib:CostnStyleDetailsControl x:Name="uscCostnStyleDetails"/>
+                        </xctk:DropDownButton.DropDownContent>
+                    </xctk:DropDownButton>
+                    <TextBlock Text="Variation" Height="22" Margin="0,4,4,-2" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="txtVarn" TextWrapping="Wrap" Text="" Width="97" Height="22" Margin="0,3" LostFocus="txtVarn_LostFocus" TabIndex="2" MaxLength="9"/>
+                    <xctk:DropDownButton x:Name="drpdwnClientList" Height="22" Width="16" Margin="0,2" TabIndex="3" MaxDropDownHeight="788">
+                        <xctk:DropDownButton.DropDownContent>
+                            <lib:CostnClientStyleDetailsControl x:Name="uscClientDetails" ClientType="1"/>
+                        </xctk:DropDownButton.DropDownContent>
+                    </xctk:DropDownButton>
+                    <xctk:ButtonSpinner Name="btnSpinStyle" Width="18" Margin="0,2,6,2" Height="22" Spin="btnSpinStyle_Spin" TabIndex="4"/>
+                    <TextBlock Text="Description" Margin="0,0,4,0" Height="22" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="txtDesc" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTStyleDescr, Mode=TwoWay}" Width="224" Height="22" Margin="0,5,8,5" VerticalAlignment="Center" TabIndex="5"/>
+                    <TextBlock Text="Year" Margin="0,4,4,0" Height="22" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="txtYear" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=CTMinUkSz, Mode=TwoWay}"  Width="42" Height="22" Margin="0,3" HorizontalContentAlignment="Right" TabIndex="6"/>
+                    <TextBlock Text="Date" Height="22" Margin="8,4,4,0" VerticalAlignment="Bottom"/>
+                    <DatePicker x:Name="datePickerDate" SelectedDate="{Binding UpdateSourceTrigger=LostFocus, Path=CTDesignDate, Mode=TwoWay}" SelectedDateFormat="Short" Height="24" Width="113" Margin="0,4,-1,4" TabIndex="7"/>
+                </StackPanel>
+                <StackPanel Name="Type_Panel" Height="30" Margin="3,0,0,0" Orientation="Horizontal">
+                    <TextBlock Text="Type" Height="22" Margin="0,3,4,3" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="txtType" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=CTGarType, Mode=TwoWay}" Width="27" Height="22" Margin="0,2,0,5" HorizontalContentAlignment="Right" LostFocus="txtType_LostFocus" TabIndex="8" VerticalAlignment="Center"/>
+                    <xctk:DropDownButton Height="22" Width="16" Margin="0,2,-1,5" TabIndex="9" VerticalAlignment="Center" MaxDropDownHeight="496">
+                        <xctk:DropDownButton.DropDownContent>
+                            <lib:ParamsControl x:Name="uscTypeParam" TypeNo="7" EnableTypeEntry="False"/>
+                        </xctk:DropDownButton.DropDownContent>
+                    </xctk:DropDownButton>
+                    <TextBlock x:Name="txtblkTypeLabel" TextWrapping="Wrap" Text="" Width="120" Height="22" Margin="1,2,4,5" Background="LightGray" Padding="0,4,0,0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Category" Height="22" Margin="0,0,3,0" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="txtCatagory" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=CTSpareShort1, Mode=TwoWay}" Width="27" Margin="0,2,0,6" Height="22" HorizontalContentAlignment="Right" LostFocus="txtCatagory_LostFocus" TabIndex="10" VerticalAlignment="Center"/>
+                    <xctk:DropDownButton Height="22" Width="16" Margin="0,0,0,4" TabIndex="11" MaxDropDownHeight="496" VerticalAlignment="Center">
+                        <xctk:DropDownButton.DropDownContent>
+                            <lib:ParamsControl x:Name="uscCatagoryParam" TypeNo="11" EnableTypeEntry="False"/>
+                        </xctk:DropDownButton.DropDownContent>
+                    </xctk:DropDownButton>
+                    <TextBlock x:Name="txtblkCatagory" TextWrapping="Wrap" Text="" Width="122" Height="22" Margin="0,2,4,5" Background="LightGray" Padding="0,4,0,0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Brand" Height="22" VerticalAlignment="Bottom" Margin="0,0,4,0"/>
+                    <TextBox x:Name="txtBrand" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=CTMinExpSz, Mode=TwoWay}" Width="30" Margin="0,2,0,5" Height="22" HorizontalContentAlignment="Right" LostFocus="txtBrand_LostFocus" TabIndex="12" VerticalAlignment="Center"/>
+                    <xctk:DropDownButton Height="22" Width="16" Margin="0,2,0,5" TabIndex="13" MaxDropDownHeight="496" VerticalAlignment="Center">
+                        <xctk:DropDownButton.DropDownContent>
+                            <lib:ParamsControl x:Name="uscBrandParam" TypeNo="14" EnableTypeEntry="False"/>
+                        </xctk:DropDownButton.DropDownContent>
+                    </xctk:DropDownButton>
+                    <TextBlock x:Name="txtblkBrandDesc" TextWrapping="Wrap" Text="" Width="100" Height="22" Margin="0,2,8,5" Background="LightGray" Padding="0,4,0,0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Gender" Height="22" VerticalAlignment="Bottom" Margin="0,0,4,0"/>
+                    <TextBox x:Name="txtGender" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=CTSpareShort2, Mode=TwoWay}" Width="19" Height="22" Margin="0,2,0,5" HorizontalContentAlignment="Right" LostFocus="txtGender_LostFocus" TabIndex="14" VerticalAlignment="Center"/>
+                    <xctk:DropDownButton Height="22" Width="16" Margin="0,2,0,5" TabIndex="15" MaxDropDownHeight="496" VerticalAlignment="Center">
+                        <xctk:DropDownButton.DropDownContent>
+                            <lib:ParamsControl x:Name="uscGenderParam" TypeNo="27" EnableTypeEntry="False"/>
+                        </xctk:DropDownButton.DropDownContent>
+                    </xctk:DropDownButton>
+                    <TextBlock x:Name="txtblkGender" TextWrapping="Wrap" Text="" Width="52" Height="22" Margin="0,2,12,5" Background="LightGray" Padding="0,4,0,0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Size Range" Height="22" Margin="0,0.5,4,0.5" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="txtSize" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=CTUkSzKey, Mode=TwoWay}" Width="30" Height="22" HorizontalContentAlignment="Right" Margin="0,2,0,5" Panel.ZIndex="-1" TabIndex="16" LostFocus="txtSize_LostFocus" VerticalAlignment="Center"/>
+                    <xctk:DropDownButton Height="22" Width="16" Margin="0,2,0,5" TabIndex="17" VerticalAlignment="Center">
+                        <xctk:DropDownButton.DropDownContent>
+                            <lib:SizesControl Name="uscGmSizes"/>
+                        </xctk:DropDownButton.DropDownContent>
+                    </xctk:DropDownButton>
+                    <xctk:DropDownButton Name="drpdwnCosting" Height="22" Width="30" Margin="0,2,0,5" Content="%" TabIndex="18" VerticalAlignment="Center">
+                        <xctk:DropDownButton.DropDownContent>
+                            <local:CostingControl x:Name="uscCosting"/>
+                        </xctk:DropDownButton.DropDownContent>
+                    </xctk:DropDownButton>
+                </StackPanel>
+                <StackPanel Height="30"></StackPanel>
+            </StackPanel>
+        </Border>
+        <c1:C1DataGrid x:Name="MainGrid" HorizontalAlignment="Left" Margin="4,72,0,350" Width="895" SelectionMode="SingleRow" RowHeaderWidth="0" ColumnHeaderHeight="16" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" GridLinesVisibility="All" HeadersVisibility="Column" CanUserSort="False" AutoGenerateColumns="False" RowHeight="22px" CanUserAddRows="False" LoadedCellPresenter="MainGrid_LoadedCellPresenter" CanUserReorderColumns="False" CanUserFilter="False" CanUserResizeRows="False" CommittedEdit="MainGrid_CommittedEdit" TabIndex="19" MouseRightButtonDown="MainGrid_MouseRightButtonDown" KeyDown="MainGrid_KeyDown" MouseDoubleClick="MainGrid_MouseDoubleClick" PreviewKeyDown="MainGrid_PreviewKeyDown" CanUserToggleDetails="False">
+            <c1:C1DataGrid.Columns>
+                <c1:DataGridTextColumn Binding="{Binding CTMatPart, Mode=TwoWay}" Name="CTMatPart" Width="0px" HorizontalAlignment="Right" Header=" " CanUserFilter="False" CanUserMove="False" CanUserSort="False" CanUserGroup="False" CanUserResize="False" Visibility="Hidden" EditOnSelection="True"/>
+                <c1:DataGridTextColumn Binding="{Binding MatPartDesc, Mode=TwoWay}" SortMemberPath="MatPartDesc" FilterMemberPath="PartDesc" CanUserFilter="False" CanUserMove="False" CanUserSort="False" CanUserGroup="False" Header="Part" MaxWidth="80" CanUserResize="False" Width="70px" EditOnSelection="True" />
+                <c1:DataGridTextColumn Binding="{Binding CTMatType, Mode=TwoWay}" Name="CTMatType" Width="30px" HorizontalAlignment="Right" Header=" " CanUserFilter="False" CanUserMove="False" CanUserSort="False" CanUserGroup="False" CanUserResize="False" EditOnSelection="True"/>
+                <c1:DataGridTextColumn Binding="{Binding MatTypeDesc, Mode=TwoWay}" SortMemberPath="MatTypeDesc" FilterMemberPath="Material" CanUserFilter="False" CanUserMove="False" CanUserSort="False" CanUserGroup="False" Header="Material" MaxWidth="80" CanUserResize="False" Width="100px" IsReadOnly="True"/>
+                <c1:DataGridTextColumn Binding="{Binding CTMatCode, Mode=TwoWay}" SortMemberPath="CTMatCode" FilterMemberPath="CTMatCode" Header="Code" MaxWidth="70" CanUserFilter="False" CanUserMove="False" CanUserSort="False" CanUserGroup="False" CanUserResize="False" Width="70px" EditOnSelection="True"/>
+                <c1:DataGridTextColumn Binding="{Binding MatCodeDesc, Mode=TwoWay}" Header="Description" SortMemberPath="MatCodeDesc" FilterMemberPath="Description"  MaxWidth="110" CanUserFilter="False" CanUserMove="False" CanUserSort="False" CanUserGroup="False" CanUserResize="False" Width="120px" IsReadOnly="True" />
+                <c1:DataGridTextColumn Binding="{Binding CTMatColr, Mode=TwoWay}" Name="CTMatType" Width="30px" HorizontalAlignment="Right" Header=" " CanUserFilter="False" CanUserMove="False" CanUserSort="False" CanUserGroup="False" CanUserResize="False" EditOnSelection="True"/>
+                <c1:DataGridTextColumn Binding="{Binding MatColrDesc, Mode=TwoWay}" Header="Colour" SortMemberPath="Colour" FilterMemberPath="MatColrDesc" MaxWidth="110" CanUserFilter="False" CanUserMove="False" CanUserSort="False" CanUserGroup="False" Width="110px" IsReadOnly="True" CanUserResize="False"/>
+                <c1:DataGridTextColumn Binding="{Binding CTMatSupl, Mode=TwoWay}" Header=" " Name="CTMatSupl" Width="30px" HorizontalAlignment="Right" CanUserFilter="False" CanUserMove="False" CanUserSort="False" CanUserGroup="False" Visibility="Collapsed" EditOnSelection="True"/>
+                <c1:DataGridTextColumn Binding="{Binding MatSuplDesc, Mode=TwoWay}" Header="Supplier" SortMemberPath="MatSuplDesc" FilterMemberPath="Supplier" MaxWidth="100" CanUserFilter="False" CanUserMove="False" CanUserSort="False" CanUserGroup="False" Width="110px" IsReadOnly="True" CanUserResize="False"/>
+                <c1:DataGridTextColumn Binding="{Binding CTMatWhse, Mode=TwoWay}" SortMemberPath="CTMatWhse" FilterMemberPath="CTMatWhse" Header="Wh" MaxWidth="30" HorizontalAlignment="Right" CanUserFilter="False" CanUserMove="False" CanUserSort="False" CanUserGroup="False" CanUserResize="False" Width="36px" EditOnSelection="True"/>
+                <c1:DataGridTextColumn Binding="{Binding CTMatLocn, Mode=TwoWay}" SortMemberPath="CTMatLocn" FilterMemberPath="CTMatLocn" Header="Lc" MaxWidth="30" HorizontalAlignment="Right" CanUserFilter="False" CanUserMove="False" CanUserSort="False" CanUserGroup="False" CanUserResize="False" Width="30px" EditOnSelection="True"/>
+                <c1:DataGridTextColumn CanUserFilter="False" CanUserMove="False" CanUserSort="False" CanUserGroup="False" CanUserResize="False" Name="" Width="24px" Header="U" EditOnSelection="True"/>
+                <c1:DataGridNumericColumn Binding="{Binding CTMatPrice, Mode=TwoWay}" SortMemberPath="CTMatPrice" FilterMemberPath="CTMatPrice" Header="Price" MaxWidth="60" HorizontalAlignment="Right" CanUserFilter="False" CanUserMove="False" CanUserSort="False" CanUserGroup="False" CanUserResize="False" Width="60px" EditOnSelection="True" Format="0.000" HandleUpDownKeys="False" ShowButtons="False"/>
+                <c1:DataGridNumericColumn Binding="{Binding CTCosting, Mode=TwoWay}" SortMemberPath="CTCosting" FilterMemberPath="CTCosting" Header="Costing" MaxWidth="60" HorizontalAlignment="Right" CanUserFilter="False" CanUserMove="False" CanUserSort="False" CanUserGroup="False" CanUserResize="False" Width="60px" EditOnSelection="True" HandleUpDownKeys="False" ShowButtons="False" Format="0.000"/>
+                <c1:DataGridNumericColumn Binding="{Binding Cost, Mode=TwoWay}" Header="Cost" MaxWidth="50" HorizontalAlignment="Right" CanUserFilter="False" CanUserMove="False" CanUserSort="False" CanUserGroup="False" CanUserResize="False" Width="50px" FilterMemberPath="Cost" SortMemberPath="Cost" Format="0.000" HandleUpDownKeys="False" ShowButtons="False" IsReadOnly="True"/>
+                <c1:DataGridCheckBoxColumn Binding="{Binding CTMatDutyFlag, Mode=TwoWay}" CanUserFilter="False" CanUserMove="False" CanUserSort="False" CanUserGroup="False" CanUserResize="False" Header="D"/>
+                <c1:DataGridTextColumn Header="Link" Width="40px" CanUserFilter="False" CanUserMove="False" CanUserSort="False" CanUserGroup="False" CanUserResize="False" EditOnSelection="True" Name="CTMatSupl" HorizontalAlignment="Right" Binding="{Binding CTMatSupl, Mode=TwoWay}"/>
+            </c1:C1DataGrid.Columns>
+        </c1:C1DataGrid>
+        <StackPanel HorizontalAlignment="Left" Height="252" Margin="4,313,0,0" VerticalAlignment="Top" Width="890" Orientation="Horizontal">
+            <StackPanel Name="Middle_Left_Panel" Width="380" Margin="0,0,0,0">
+                <StackPanel Height="28" Orientation="Horizontal">
+                    <TextBlock x:Name="txtblkHomeCurrcy" Text="Home Currcy" VerticalAlignment="Center" Background="LightGray" Margin="157,0,14,0" Height="22" Width="70" HorizontalAlignment="Right" FlowDirection="RightToLeft"/>
+                    <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" Background="LightGray" Text="" Height="22" Width="70" Margin="0,0,6,0"/>
+                    <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" Background="LightGray" Text=" Fixed" Height="22" Width="58" Margin="0" HorizontalAlignment="Right"/>
+                </StackPanel>
+                <StackPanel Height="24" Orientation="Horizontal">
+                    <TextBlock Text="Total Material Cost" Width="128" Margin="0,0,39,0" FontWeight="Bold" Height="16" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="txtblkMatCost" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=CTTotMatCost, StringFormat={}{0:0.000}, Mode=TwoWay}" Width="60" VerticalAlignment="Center" TextAlignment="Right" Background="LightGray" Margin="0,0,24,0" Height="22" Padding="5,5,5,2"/>
+                    <TextBlock x:Name="lblMatCostF" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=MaterialCostF, StringFormat={}{0:0.000}, Mode=TwoWay}" Width="60" VerticalAlignment="Center" TextAlignment="Right" Background="LightGray" Margin="0,0,4,0" Height="22" Padding="5,5,5,2"/>
+                    <Label x:Name="lblMatCostX" Content="" Width="60" VerticalAlignment="Center" HorizontalContentAlignment="Right" Background="LightGray" FontWeight="Bold" Margin="0" Height="22" VerticalContentAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Height="24" Orientation="Horizontal">
+                    <TextBlock Text="Making Price" Margin="0,0,62,0" Width="105" VerticalAlignment="Center" FontWeight="Bold" FontSize="11" Height="16"/>
+                    <TextBox x:Name="txtMakePrice" TextWrapping="Wrap" Margin="0,0,23,0" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTCostMaking, StringFormat={}{0:0.000}, Mode=TwoWay}" Width="60" VerticalAlignment="Center" HorizontalContentAlignment="Right" LostFocus="txtMakePrice_LostFocus"/>
+                    <TextBox x:Name="txtMakePriceF" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTCostMakingF, StringFormat={}{0:0.000}, Mode=TwoWay}" Width="60" VerticalAlignment="Center" HorizontalContentAlignment="Right" Margin="0" Height="22" LostFocus="txtMakePriceF_LostFocus"/>
+                    <TextBox x:Name="txtMakePriceX" TextWrapping="Wrap" Text="" Margin="4,0,6,0" Width="60" HorizontalContentAlignment="Right" Height="22" IsEnabled="False"/>
+                </StackPanel>
+                <StackPanel Height="24" Orientation="Horizontal">
+                    <TextBlock Text="Duty" FontWeight="Bold" Margin="0,0,60,0" Height="16" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="txtDutyPerc" TextWrapping="Wrap" Margin="0" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTDutyPer, StringFormat={}{0:0.00}, Mode=TwoWay}" Width="59" HorizontalContentAlignment="Right" Height="22" LostFocus="txtDutyPerc_LostFocus"/>
+                    <Label x:Name="lblPerc" Content="%" Margin="0,4,2,2" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="11" Height="24" Width="19"/>
+                    <TextBox x:Name="txtDuty" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTDuty, StringFormat={}{0:0.000}, Mode=TwoWay}" Margin="0,0,23,0" Width="60" HorizontalContentAlignment="Right" Height="22" LostFocus="txtDuty_LostFocus"/>
+                    <TextBox x:Name="txtDutyF" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTDutyF, StringFormat={}{0:0.000}, Mode=TwoWay}" Margin="0" Width="60" HorizontalContentAlignment="Right" Height="22" IsEnabled="False"/>
+                    <TextBox x:Name="txtDutyX" TextWrapping="Wrap" Text="" Margin="4,0,6,0" Width="60" HorizontalContentAlignment="Right" Height="22" IsEnabled="False"/>
+                </StackPanel>
+                <StackPanel Height="24" Orientation="Horizontal">
+                    <TextBlock Text="Overheads" FontWeight="Bold" Width="82" Margin="0,0,5,0" Height="16" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtOverHeadsPer" TextWrapping="Wrap" Margin="0" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTOverHeadsPer, StringFormat={}{0:0.00}}" Width="59" HorizontalContentAlignment="Right" Height="22" LostFocus="txtOverHeadsPer_LostFocus"/>
+                    <Label x:Name="lblPerc1" Content="%" Margin="0,2,2,0" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="11" Height="24" Width="19"/>
+                    <TextBox x:Name="txtOverHeads" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTOverHeads, StringFormat={}{0:0.000}}" Margin="0" Width="60" HorizontalContentAlignment="Right" Height="22" LostFocus="txtOverHeads_LostFocus"/>
+                    <xctk:DropDownButton Name="drpdwwnOvrHeads" Height="22" Width="15" Margin="0,0,2,0" MaxDropDownHeight="520">
+                        <xctk:DropDownButton.DropDownContent>
+                            <lib:OverHeadsControl Name="uscOverHeads" FormType="1"/>
+                        </xctk:DropDownButton.DropDownContent>
+                    </xctk:DropDownButton>
+                    <TextBox x:Name="txtOverHeadsF" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTOverHeadsF, StringFormat={}{0:0.000}, Mode=TwoWay}" Margin="6,0,2,0" Width="60" HorizontalContentAlignment="Right" Height="22" LostFocus="txtOverHeadsF_LostFocus"/>
+                    <TextBox x:Name="txtOverHeadsX" TextWrapping="Wrap" Text="" Margin="2,0,6,0" Width="60" HorizontalContentAlignment="Right" Height="22" IsEnabled="False"/>
+                </StackPanel>
+                <StackPanel Height="24" Orientation="Horizontal">
+                    <TextBlock Text="Contingency" FontWeight="Bold" Margin="0,0,5,0" Width="82" FontSize="11" Height="16" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtContinPer" TextWrapping="Wrap" Margin="0" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTContinPer, StringFormat={}{0:0.00}, Mode=TwoWay}" Width="60" HorizontalContentAlignment="Right" Height="22" LostFocus="txtContinPer_LostFocus"/>
+                    <Label x:Name="lblPercCont" Content="%" Margin="0,2,2,0" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="11" Height="24" Width="19"/>
+                    <TextBox x:Name="txtContin" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTContin, StringFormat={}{0:0.000}, Mode=TwoWay}" Margin="0,0,23,0" Width="60" HorizontalContentAlignment="Right" Height="22" LostFocus="txtContin_LostFocus"/>
+                    <TextBox x:Name="txtContinF" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTContinF, StringFormat={}{0:0.000}, Mode=TwoWay}" Margin="0" Width="60" HorizontalContentAlignment="Right" Height="22" LostFocus="txtContinF_LostFocus"/>
+                    <TextBox x:Name="txtContinX" TextWrapping="Wrap" Text="" Margin="4,0,6,0" Width="60" HorizontalContentAlignment="Right" Height="22" IsEnabled="False"/>
+                </StackPanel>
+                <StackPanel Height="24" Orientation="Horizontal">
+                    <TextBlock Text="Total Manufacture Cost" FontWeight="Bold" Margin="0,0,6,0" FontSize="11" Height="16" Width="161" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtManuFCost" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTTotManCost, StringFormat={}{0:0.000}}" Margin="0,0,23,0" Width="60" HorizontalContentAlignment="Right" Height="21" IsEnabled="False"/>
+                    <TextBox x:Name="txtManuFCostF" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTProfMar1F, StringFormat={}{0:0.000}}"  Margin="0" Width="60" HorizontalContentAlignment="Right" Height="22" IsEnabled="False"/>
+                    <TextBox x:Name="txtManuFCostX" TextWrapping="Wrap" Text="" Margin="4,0,6,0" Width="60" HorizontalContentAlignment="Right" Height="22" IsEnabled="False"/>
+                </StackPanel>
+                <StackPanel Height="24" Orientation="Horizontal">
+                    <TextBlock Text="Mark up" FontWeight="Bold" Margin="0,0,40,0" Height="22" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="txtMarkUpPerc" TextWrapping="Wrap" Margin="0" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTProfMarPer1, StringFormat={}{0:0.00}, Mode=TwoWay}" Width="60" HorizontalContentAlignment="Right" Height="22" LostFocus="txtMarkUpPerc_LostFocus" VerticalAlignment="Top"/>
+                    <Label x:Name="lblPerc2" Content="%" Margin="0,4,1,2" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="11" Height="24" Width="19"/>
+                    <TextBox x:Name="txtMarkUp" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTProfMar1, StringFormat={}{0:0.000}, Mode=TwoWay}" Margin="0,0,23,0" Width="60" HorizontalContentAlignment="Right" Height="22" LostFocus="txtMarkUp_LostFocus"/>
+                    <TextBox x:Name="txtMarkUpF" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTProfMar1F, StringFormat={}{0:0.000}, Mode=TwoWay}" Margin="0,0,2,0" Width="60" HorizontalContentAlignment="Right" Height="22" LostFocus="txtMarkUpF_LostFocus"/>
+                    <TextBox x:Name="txtMarkUpX" TextWrapping="Wrap" Text="" Margin="2,0,6,0" Width="60" HorizontalContentAlignment="Right" Height="22" IsEnabled="False"/>
+                </StackPanel>
+                <StackPanel Height="24" Orientation="Horizontal">
+                    <TextBlock Text="Profit Margin" FontWeight="Bold" Width="82" Margin="0,0,5,0" FontSize="11" Height="22" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="txtMargin" TextWrapping="Wrap" Margin="0" Text="{Binding UpdateSourceTrigger=LostFocus, Path=ProfMarginPerc, StringFormat={}{0:0.00}, Mode=TwoWay}" Width="60" HorizontalContentAlignment="Right" Height="22" VerticalAlignment="Bottom" LostFocus="txtMargin_LostFocus"/>
+                    <Label x:Name="lblPerc3" Content="%" Margin="0,6,1,7" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="11" Width="19" Height="24"/>
+                    <TextBox x:Name="txtProfMar" TextWrapping="Wrap" Text="" Margin="0,2,23,2" Width="60" HorizontalContentAlignment="Right" Height="22" Visibility="Hidden"/>
+                    <TextBox x:Name="txtProfMarF" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=ProfirMarginF, StringFormat={}{0:0.000}, Mode=TwoWay}" Margin="0,0,2,0" Width="60" HorizontalContentAlignment="Right" Height="22"/>
+                    <TextBox x:Name="txtCurrcyDiff" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CurrcyDiff, StringFormat={}{0:0.000}, Mode=TwoWay}" Margin="2,0,6,0" Width="60" HorizontalContentAlignment="Right" Height="22" TextAlignment="Right" IsEnabled="False"/>
+                </StackPanel>
+                <StackPanel Height="24" Orientation="Horizontal">
+                    <TextBlock Text="Selling Price" Margin="0,0,4,0" Width="163" VerticalAlignment="Center" FontWeight="Bold" FontSize="11" Height="22"/>
+                    <TextBox x:Name="txtSelPrice" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTSelPrice1, StringFormat={}{0:0.000}, Mode=TwoWay}" Margin="0" Width="60" HorizontalContentAlignment="Right" Height="22" LostFocus="txtSelPrice_LostFocus"/>
+                    <xctk:DropDownButton Name="drpdwwnSellPrice" Height="22" Width="15" Margin="0,0,8,0" MaxDropDownHeight="540">
+                        <xctk:DropDownButton.DropDownContent>
+                            <lib:OverHeadsControl Name="uscSellPrice" FormType="2"/>
+                        </xctk:DropDownButton.DropDownContent>
+                    </xctk:DropDownButton>
+                    <TextBox x:Name="txtSelPrice_F" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTVatRate, StringFormat={}{0:0.000}, Mode=TwoWay}" Margin="0,0,2,0" Width="60" HorizontalContentAlignment="Right" Height="22" LostFocus="txtSelPrice_F_LostFocus"/>
+                    <TextBox x:Name="txtSelPrice_X" TextWrapping="Wrap" Text="" Margin="2,0,6,0" Width="60" HorizontalContentAlignment="Right" Height="22" IsEnabled="False"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Name="Middle_Mid_Panel" Width="342" Height="252" VerticalAlignment="Top" Margin="0,0,0,-1">
+                <StackPanel Orientation="Horizontal" Height="28">
+                    <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" Background="#FF8080FF" Text="QPR Country" Height="22" Width="70" Margin="0,0,2,0"/>
+                    <TextBox x:Name="txtCountry" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTCountryCode, StringFormat={}{0:0.000}}" Width="38" Height="22" Margin="0" HorizontalContentAlignment="Right" LostFocus="txtCountry_LostFocus" Padding="1,0"/>
+                    <xctk:DropDownButton x:Name="drpdwnCountry" Height="22" Width="16" Margin="0" Padding="3,0" MaxDropDownHeight="496">
+                        <xctk:DropDownButton.DropDownContent>
+                            <lib:ParamsControl x:Name="uscCountryParam" TypeNo="8" EnableTypeEntry="False"/>
+                        </xctk:DropDownButton.DropDownContent>
+                    </xctk:DropDownButton>
+                    <TextBox x:Name="txtCountryPerc" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTCountryPerc, StringFormat={}{0:0.00}}" Width="34" Height="22" Margin="0" HorizontalContentAlignment="Right" Padding="1,0"/>
+                    <Label x:Name="lblPerc12" Content="%" Margin="0,2.5,8,0" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="11" Width="19" Padding="5,0"/>
+                    <TextBlock Text="Total" FontWeight="Bold" Margin="0,0,4,0" Height="22" VerticalAlignment="Bottom"/>
+                    <TextBlock x:Name="txtblkQprTot" TextWrapping="Wrap" VerticalAlignment="Center" Background="LightGray" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=QPRMatTotal, StringFormat={}{0:0.000}, Mode=TwoWay}" Height="22" Width="51" Margin="0,0,2,0" TextAlignment="Right"/>
+                    <TextBlock x:Name="txtblkQprPerc" TextWrapping="Wrap" VerticalAlignment="Center" Background="LightGray" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=QprPerc, StringFormat={}{0:0.00}, Mode=TwoWay}" Height="22" Width="44" Margin="0,0,2,0" TextAlignment="Right"/>
+                    <Label x:Name="lblPerc11" Content="%" Margin="0" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="11" Width="19" Height="16" HorizontalAlignment="Center" Padding="0,4,0,0" UseLayoutRounding="True"/>
+                </StackPanel>
+                <StackPanel Height="24" Orientation="Horizontal" Margin="0,0,10,0">
+                    <Label Content="Large" Width="60" Margin="52,0,26,0" FontWeight="Bold" VerticalAlignment="Center" Padding="5,0"/>
+                    <Label Content="Meduim" Width="55" Margin="26,0,28,0" FontWeight="Bold" Padding="5,0" Height="16"/>
+                    <Label Content="Small" Width="62" Margin="0,0,5,0" FontWeight="Bold" Padding="5,0" Height="16"/>
+                </StackPanel>
+                <StackPanel Height="24" Orientation="Horizontal" Margin="0,0,10,0">
+                    <TextBlock Text="Size Key" FontWeight="Bold" Width="52" Margin="0,8,2,3" Height="16" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Hidden" />
+                    <TextBox x:Name="txtSelPricePerc2" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTSelPricePer2, StringFormat={}{0:0.00}, Mode=TwoWay}" Margin="0,0,2,0" Width="60" HorizontalContentAlignment="Right" Height="22" LostFocus="txtSelPricePerc2_LostFocus"/>
+                    <Label x:Name="lblPerc4" Content="%" Margin="0,0,10,0" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="11" Width="18"/>
+                    <TextBox x:Name="txtSelPricePerc3" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTSelPricePer3, StringFormat={}{0:0.00}, Mode=TwoWay}" Margin="20,0,2,0" Width="60" HorizontalContentAlignment="Right" Height="22" LostFocus="txtSelPricePerc3_LostFocus"/>
+                    <Label x:Name="lblPerc5" Content="%" Margin="0,0,2,0" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="11" Width="20"/>
+                    <TextBox x:Name="txtSelPricePerc4" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTSelPricePer4, StringFormat={}{0:0.00}, Mode=TwoWay}" Margin="0,0,2,0" Width="60" HorizontalContentAlignment="Right" Height="22" LostFocus="txtSelPricePerc4_LostFocus"/>
+                    <Label x:Name="lblPerc6" Content="%" Margin="0,0,3,0" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="11" Width="19"/>
+                </StackPanel>
+                <StackPanel Height="24" Orientation="Horizontal" Margin="0,0,10,0">
+                    <TextBlock Text="Home" FontWeight="Bold" Width="52" Margin="0,0,2,0" Height="16" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                    <TextBox x:Name="txtSelPrice2H" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTSelPrice2, StringFormat={}{0:0.000}, Mode=TwoWay}" Margin="0,0,26,0" Width="60" HorizontalContentAlignment="Right" Height="22"/>
+                    <TextBox x:Name="txtSelPrice3H" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTSelPrice3, StringFormat={}{0:0.000}, Mode=TwoWay}" Margin="24,0" Width="60" HorizontalContentAlignment="Right" Height="22"/>
+                    <TextBox x:Name="txtSelPrice4H" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTSelPricePer4, StringFormat={}{0:0.000}, Mode=TwoWay}" Margin="0,0,6,0" Width="60" HorizontalContentAlignment="Right" Height="22" LostFocus="txtSelPrice4H_LostFocus"/>
+                </StackPanel>
+                <StackPanel Height="24" Orientation="Horizontal" Margin="0,0,10,0">
+                    <TextBlock Text="Foreign" FontWeight="Bold" Width="52" Margin="0,0,2,0" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="txtSelPrice2F" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTSelPricePer2, StringFormat={}{0:0.000}}" Margin="0,0,26,0" Width="60" HorizontalContentAlignment="Right" Height="22" IsEnabled="False"/>
+                    <TextBox x:Name="txtSelPrice3F" TextWrapping="Wrap" Text="" Margin="24,0" Width="60" HorizontalContentAlignment="Right" Height="22" IsEnabled="False"/>
+                    <TextBox x:Name="txtSelPrice4F" TextWrapping="Wrap" Text="" Margin="0,0,10,0" Width="60" HorizontalContentAlignment="Right" Height="22" IsEnabled="False"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="24" Margin="0,0,10,0">
+                    <TextBlock Text="Plus Vat" FontWeight="Bold" Width="52" Margin="0,0,2,0" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="txtSelPricePlusVat" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=SelPricePlusVat, StringFormat={}{0:0.000}, Mode=TwoWay}" Margin="0,0,26,0" Width="60" TextAlignment="Right" Height="22" Background="LightGray" Padding="5,5,5,2"/>
+                    <TextBox x:Name="txtPercSelPrice" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=SellPricePerc, StringFormat={}{0:0.00}, Mode=TwoWay}" Margin="24,0,2,0" Width="47" HorizontalContentAlignment="Right" Height="22" LostFocus="txtPercSelPrice_LostFocus"/>
+                    <TextBlock x:Name="lblPerc7" TextWrapping="Wrap" VerticalAlignment="Center" Text="% on SP" Height="22" Width="45" Margin="0,4,6,4"/>
+                </StackPanel>
+                <StackPanel Height="24" Orientation="Horizontal" Margin="0,0,10,0">
+                    <TextBlock Text="Discounted Values" FontWeight="Bold" Width="109" Margin="20,0,2,0" Height="16"/>
+                    <TextBlock Text="Time To Make (mins)" FontWeight="Bold" Width="122" Margin="4,0,6,0" Height="16"/>
+                    <TextBox x:Name="txtTimeMake" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTTimeToMake, StringFormat={}{0:0.00}, Mode=TwoWay}" Margin="2,0" Width="47" HorizontalContentAlignment="Right" Height="22" IsEnabled="False"/>
+                </StackPanel>
+                <StackPanel Height="24" Orientation="Horizontal" Margin="0,0,10,0">
+                    <TextBox x:Name="txtDiscountPerc" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=CTDiscountPer, StringFormat={}{0:0.000}, Mode=TwoWay}" Margin="50,0,-1,0" Width="60" HorizontalContentAlignment="Right" Height="22" LostFocus="txtDiscountPerc_LostFocus"/>
+                    <Label x:Name="lblPerc10" Content="%" Margin="0" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="11" Width="19"/>
+                    <CheckBox x:Name="chkBoxDiscPercFlag" Content="" VerticalAlignment="Center" Margin="0,4"/>
+                    <TextBox x:Name="txtDiscount" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=DiscValue, StringFormat={}{0:0.000}, Mode=TwoWay}" Margin="14,0,6,0" Width="60" HorizontalContentAlignment="Right" Height="22" LostFocus="txtDiscount_LostFocus"/>
+                    <CheckBox x:Name="chkBoxDiscFlag" Content="" VerticalAlignment="Center" Margin="0,4"/>
+                    <TextBox x:Name="txtStyleMarkUpPerc" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=StyleMarkUpPerc, StringFormat={}{0:0.00}}" Margin="4,0,2,0" Width="60" HorizontalContentAlignment="Right" Height="22"/>
+                    <Label x:Name="lblPerc8" Content="%" Margin="0,0,3,0" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="11" Width="19"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="24" Margin="0,0,10,0">
+                    <TextBlock Text="Currency Difference" FontWeight="Bold" Width="116" Margin="10,0,32,0" Height="16"/>
+                    <Label x:Name="lblProfitAfterDisc" VerticalAlignment="Center" Background="LightGray" Content="" Height="22" Width="60" Margin="0,0,10,0" HorizontalContentAlignment="Right" Padding="5,5,5,2"/>
+                    <TextBox x:Name="txtMarginProfitDisc" TextWrapping="Wrap" Text="{Binding UpdateSourceTrigger=LostFocus, Path=ProfMarPercDisc, StringFormat={}{0:0.00}, Mode=TwoWay}" Margin="24,0,2,0" Width="60" HorizontalContentAlignment="Right" Height="22"/>
+                    <Label x:Name="lblPerc9" Content="%" Margin="0,2.5,3,2.5" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="11" Width="19" Padding="5,0" UseLayoutRounding="True"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="24">
+                    <Button x:Name="btnSuppress" Content="Suppress Home" Height="22"/>
+                    <RadioButton x:Name="rdoTradeDisc" Content="" Width="29" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Margin="40,0,1,0"/>
+                    <RadioButton x:Name="rdoSettleDisc2" Content="" Width="29" VerticalAlignment="Center" Margin="0"/>
+                    <RadioButton x:Name="rdoSettleDisc3" Content="" Width="29" VerticalAlignment="Center" Margin="0,0,24,0"/>
+                    <TextBlock Text="Foreign Currency" VerticalAlignment="Center" Height="18" Background="#FFFF6400" Foreground="White" Margin="0" Width="97" TextAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Name="Mid_Left_panel" Width="170" Margin="0,0,0,0">
+                <Border BorderBrush="Black" BorderThickness="1" Height="246" Margin="6,2,6,0">
+                    <StackPanel>
+                        <StackPanel Height="218">
+                            <Image x:Name="imgStyle" Margin="6,5,6,0" Height="206">
+                                <xctk:MagnifierManager.Magnifier>
+                                    <xctk:Magnifier x:Name="_magnifier"
+                                        Background="White"
+                                        Radius="160"
+                                        ZoomFactor="0.4"
+                                        FrameType="Circle"
+                                        BorderThickness="2"
+                                        BorderBrush="Orange"
+                                        Width="200"
+                                        Height="200"/>
+                                </xctk:MagnifierManager.Magnifier>
+                            </Image>
+                        </StackPanel>
+                    <StackPanel Height="24" Orientation="Horizontal">
+                            <Button x:Name="btnZoom" Content="Zoom" Width="75" Margin="4,0,0,0" VerticalAlignment="Center" Click="btnZoom_Click"/>
+                            <xctk:DropDownButton x:Name="_dropDownButton"
+                              Grid.Row="1"
+                              Margin="10,0,2,0"
+                              Width="64"
+                              HorizontalAlignment="Left"
+                              Content="Options" Height="20">
+                                <xctk:DropDownButton.DropDownContent>
+                                    <StackPanel>
+                                        <lib:MagnifierOptionsControl Tag="mag"/>
+                                    </StackPanel>
+                                </xctk:DropDownButton.DropDownContent>
+                            </xctk:DropDownButton>
+                        </StackPanel>
+                    </StackPanel>
+            </Border>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="24" Margin="0,568,0,0" VerticalAlignment="Top" Width="909" Orientation="Horizontal">
+            <Button x:Name="btnExit" Content="Exit" Margin="4,2,2,0" Width="46" Click="btnExit_Click" Height="22"/>
+            <Button x:Name="btnSave" Content="Save" Margin="0,2,2,0" Width="46" Click="btnSave_Click" Height="22"/>
+            <Button x:Name="btnNotes" Focusable="False" Content="Notes" Margin="0,2,2,0" Width="46" Height="22" Click="btNotes_Click"/>
+            <Button x:Name="btnExtra" Focusable="False" Content="Extras" Margin="0,2,2,0" Width="54" Height="22" Click="btnExtra_Click"/>
+            <Button x:Name="btnCopy" Content="Copy From" Margin="0,2,2,0" Width="68" Height="22" Click="btnCopy_Click"/>
+            <Button x:Name="btnInsert" Content="Insert Line" Margin="0,2,2,0" Width="66" Height="22" Click="btnInsert_Click"/>
+            <Button x:Name="btnColComb" Focusable="False" Content="Colour Combs" Margin="0,2,2,0" Width="84" Height="22" Click="btnColComb_Click" Background="RoyalBlue" Foreground="White"/>
+            <Button x:Name="btnGarmetCol" Content="Grament Colour" Margin="0,2,2,0" Width="98" Height="22" Click="btnGarmetCol_Click" />
+            <Button x:Name="btnApprove" Focusable="False" Content="Approved" Margin="0,2,2,0" Width="66" Height="22" Background="#FF00FF00"/>
+            <Button x:Name="btnDtm" Focusable="False" Content="DTM" Margin="0,2,2,0" Width="46" Height="22" Background="Yellow"/>
+            <Button x:Name="btnCostBySize" Content="Cost By Size" Margin="0,2,2,0" Width="78" Height="22" Click="btnCostBySize_Click"/>
+            <Button x:Name="btnNonStock" Focusable="False" Content="Non Stock" Margin="0,2,2,0" Width="67" Height="22" Background="#FFC87814" Foreground="White"/>
+            <Button x:Name="btnDelAllColrCombs" Content="Del All Colr Combs" Margin="0,2,10,0" Width="108" Height="22"/>
+        </StackPanel>
+        <StackPanel x:Name="ButtonMiddle_Panel" HorizontalAlignment="Left" Height="25" Margin="0,594,0,0" VerticalAlignment="Top" Width="909" Orientation="Horizontal">
+            <Button x:Name="btnPrint" Content="Print" Margin="4,2,2,0" Width="46" Height="22" Click="btnPrint_Click"/>
+            <Button x:Name="btnSpec" Content="Spec" Margin="0,2,2,0" Width="46" Height="22" Click="btnSpec_Click"/>
+            <Button x:Name="btnWidth" Content="Width" Margin="0,2,2,0" Width="46" Height="22" Click="btnWidth_Click"/>
+            <Button x:Name="btnCurrcy" Content="Currency" Margin="0,2,2,0" Width="54" Height="22" Click="btnCurrcy_Click"/>
+            <Button x:Name="btnDelStyle" Content="Delete Style" Margin="0,2,2,0" Width="68" Height="22" Click="btnDelStyle_Click"/>
+            <Button x:Name="btnDelLine" Content="Delete Line" Margin="0,2,2,0" Width="66" Height="22" Click="btnDelLine_Click"/>
+            <Button x:Name="btnDcknInstruc" Focusable="False" Content="Docket Instrs" Margin="0,2,2,0" Width="84" Height="22" Click="btnDcknInstruc_Click"/>
+            <Button x:Name="btnCusPref" Focusable="False" Content="Cust Prefence" Margin="0,2,2,0" Width="98" Height="22" Background="LightBlue" Click="btnCusPref_Click"/>
+            <Button x:Name="btnSizeMap" Focusable="False" Content="Size Map" Margin="0,2,2,0" Width="66" Height="22" Background="#FFFF81C0" Click="btnSizeMap_Click"/>
+            <Button x:Name="btnGrade" Content="Grade" Margin="0,2,2,0" Width="46" Height="22" Click="btnGrade_Click"/>
+            <Button x:Name="btnConsum" Focusable="False" Content="Consumption" Margin="0,2,2,0" Width="78" Height="22" Background="#FFFF0080" Click="btnConsum_Click"/>
+            <Button x:Name="btnPriceList" Content="Price List" Margin="0,2,2,0" Width="67" Height="22" Click="btnPriceList_Click"/>
+            <Button x:Name="btnOperations" Content="Operations" Margin="0,2,10,0" Width="80" Height="22" Click="btnOperations_Click"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="25" Margin="0,620,0,0" VerticalAlignment="Top" Width="900" Orientation="Horizontal">
+            <Button x:Name="btnMatProp" Content="Mat Properties" Margin="4,2,2,0" Width="87" Click="btnMatProp_Click" Height="22"/>
+            <Button x:Name="btnModMaterial" Content="Modify Material" Margin="0,2,2,0" Width="90" Height="22" Click="btnModMaterial_Click"/>
+            <Button x:Name="btnCareInstruct" Content="Care Instruction" Margin="0,2,2,0" Width="89" Height="22"/>
+            <Button x:Name="btnMakeCost" Content="Make Cost" Margin="0,2,2,0" Width="87" Height="22" Click="btnMakeCost_Click"/>
+            <Button x:Name="btnEmblish" Focusable="False" Content="Embllishments" Margin="0,2,2,0" Width="83" Height="22" Click="btnEmblish_Click"/>
+            <Button x:Name="btnPackInstruc" Focusable="False" Content="Packing Instructions" Margin="0,2,2,0" Width="112" Height="22" Click="btnPackInstruc_Click"/>
+            <Button x:Name="btnChangeWhse" Content="Change Warehouse" Margin="0,2,2,0" Width="119" Height="22"/>
+            <Button x:Name="btnProcess" Content="Processes" Margin="0,2,2,0" Width="80" Height="22"/>
+            <Button x:Name="btnEdit" Content="Edit" Margin="0,2,2,1" Width="46" Height="22" Click="btnEdit_Click"/>
+            <Button x:Name="btnNew" Content="New" Margin="0,2,10,1" Width="46" Height="22" Click="btnNew_Click"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

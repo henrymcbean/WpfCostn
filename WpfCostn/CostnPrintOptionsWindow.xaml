@@ -1,0 +1,125 @@
+﻿<Window x:Class="WpfCostn.CostnPrintOptionsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:lib="clr-namespace:WpfWgmateControlLibrary;assembly=WpfWgmateControlLibrary"
+        Title="Print Options" Height="453" Width="508" ShowInTaskbar="False" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Loaded="Window_Loaded">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Height="405" Margin="10,10,0,0" VerticalAlignment="Top" Width="189">
+            <StackPanel Height="22" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintNotes}" Content="                             Print Notes" VerticalAlignment="Center" FlowDirection="RightToLeft" Width="172"/>
+            </StackPanel>
+            <StackPanel Height="22" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintColourCombinations}" Content="     Print Colour Combinations" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Margin="0,0,0,4" Width="172" Height="15"/>
+            </StackPanel>
+            <StackPanel Height="22" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintAdditionalPrices}" Content="            Print Additional Prices" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Margin="0,0,0,4" Width="172"/>
+            </StackPanel>
+            <StackPanel Height="22" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintCompsSubTotal}" Content="    Print Components Subtotal" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Margin="0,0,0,4" Width="172"/>
+            </StackPanel>
+            <StackPanel Height="22" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintCostInfo}" Content="            Print Cost Information" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Margin="0,0,0,4" Width="172"/>
+            </StackPanel>
+            <StackPanel Height="22" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintVATInlusivePrice}" Content="         Print VAT Inclusive Price" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Margin="0,0,0,4" Width="172"/>
+            </StackPanel>
+            <StackPanel Height="22" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintMaterials}" Content="                        Print Materials" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Margin="0,0,0,4" Width="172"/>
+            </StackPanel>
+            <StackPanel Height="22" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintMaterialProperties}" Content="        Print Material Properties" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Margin="0,0,0,4" Width="172"/>
+            </StackPanel>
+            <StackPanel Height="22" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintMaterialImages}" Content="             Print Material Photos" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Margin="0,0,0,4" Width="172"/>
+            </StackPanel>
+            <StackPanel Height="22" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintForeignCurrency}" Content="           Print Foreign Currency" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Margin="0,0,0,4" Width="172"/>
+            </StackPanel>
+            <StackPanel Height="22" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintOverHeadDetails}" Content="           Print Overhead Details" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Margin="0,0,0,4" Width="172"/>
+            </StackPanel>
+            <StackPanel Height="22" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintSellPriceDetails}" Content="            Print Sell Price Details" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Margin="0,0,0,4" Width="172"/>
+            </StackPanel>
+            <StackPanel Height="12" Orientation="Horizontal"/>
+            <StackPanel Height="22" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintDocument}" Content="                      Print Document" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Margin="0,0,0,4"/>
+            </StackPanel>
+            <StackPanel Height="22" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=EmailDocument}" Content="                         Internal Email" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Margin="0,0,0,4" Width="172"/>
+                <xctk:DropDownButton x:Name="drpdwnEmail" Height="14" Width="15" Margin="0,0,2,4" VerticalAlignment="Center">
+                    <xctk:DropDownButton.DropDownContent>
+                        <lib:ParamsControl  TypeNo="2" EnableTypeEntry="False"/>
+                    </xctk:DropDownButton.DropDownContent>
+                </xctk:DropDownButton>
+            </StackPanel>
+            <StackPanel Height="22" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=EmailIncludeAttachment}" Content="Include details as attachment" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Margin="0,0,0,4" Width="172"/>
+            </StackPanel>
+            <StackPanel Height="22" Orientation="Horizontal" Margin="0,0,0,8">
+                <TextBlock TextWrapping="Wrap" Text="Print Type" VerticalAlignment="Center" Margin="0,0,80,0"/>
+                <TextBox TextWrapping="Wrap" Text="{Binding Path=PrintType, Mode=TwoWay}" Width="39" TextAlignment="Right"/>
+                <xctk:DropDownButton x:Name="drpdwnPrintType" Height="22" Width="15" Margin="0,0,2,0" VerticalAlignment="Center">
+                    <xctk:DropDownButton.DropDownContent>
+                        <lib:ParamsControl  TypeNo="2" EnableTypeEntry="False"/>
+                    </xctk:DropDownButton.DropDownContent>
+                </xctk:DropDownButton>
+            </StackPanel>
+            <StackPanel Height="30" Orientation="Horizontal">
+                <Button x:Name="btnCancel" Content="Cancel" Width="75" VerticalAlignment="Center" Margin="0,0,10,0" Click="btnCancel_Click"/>
+                <Button x:Name="btnOK" Content="OK" Width="75" VerticalAlignment="Center" Margin="0,4,10,4" Click="btnOK_Click"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="415" Margin="199,0,0,0" VerticalAlignment="Top" Width="292">
+            <StackPanel Height="121" Margin="0,0,0,10">
+                <GroupBox Header="" Height="121">
+                    <StackPanel HorizontalAlignment="Left" Height="100" Margin="10,0,-2,-1" VerticalAlignment="Top" Width="272">
+                        <StackPanel Height="24" Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintOperations}" Content="                    Print Operations" VerticalAlignment="Center" FlowDirection="RightToLeft" Width="172" Margin="0,3,18,5"/>
+                            <Button Content="Select Photo" Width="82" VerticalAlignment="Center" Margin="0,1"/>
+                        </StackPanel>
+                        <StackPanel Height="24" Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintOperations}" Content="       Print Docket Instructions" VerticalAlignment="Center" FlowDirection="RightToLeft" Width="172" Margin="0,3,18,5"/>
+                            <Button Content="Select Photo" Width="82" VerticalAlignment="Center" Margin="0,1"/>
+                        </StackPanel>
+                        <StackPanel Height="24" Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintEmbellishments}" Content="             Print Embellishments" VerticalAlignment="Center" FlowDirection="RightToLeft" Width="172" Margin="0,3,18,5"/>
+                            <Button Content="Select Photo" Width="82" VerticalAlignment="Center" Margin="0,1"/>
+                        </StackPanel>
+                        <StackPanel Height="24" Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintPackingInstructions}" Content="      Print Packing Instructions" VerticalAlignment="Center" FlowDirection="RightToLeft" Width="172" Margin="0,3,18,5"/>
+                            <Button Content="Select Photo" Width="82" VerticalAlignment="Center" Margin="0,1"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+            <StackPanel Height="100">
+                <GroupBox Header="" Height="96">
+                    <StackPanel HorizontalAlignment="Left" Height="74" Margin="10,0,-2,0" VerticalAlignment="Top" Width="272">
+                        <StackPanel Height="24" VerticalAlignment="Center" Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintSketch}" Content="                            Print Sketch" VerticalAlignment="Center" FlowDirection="RightToLeft" Margin="0,3,18,5"/>
+                            <Button Content="Select Photo" Width="82" VerticalAlignment="Center" Margin="0,1"/>
+                        </StackPanel>
+                        <StackPanel Height="24" Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintPhotograph}" Content="                    Print Photograph" VerticalAlignment="Center" FlowDirection="RightToLeft" Margin="0,3,18,5" Width="173"/>
+                            <Button Content="Select Photo" Width="82" VerticalAlignment="Center" Margin="0,1"/>
+                        </StackPanel>
+                        <StackPanel Height="24" Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintSpecSheet}" Content="        Print Specification Sheet" VerticalAlignment="Center" FlowDirection="RightToLeft" Margin="0,3,18,5" Width="172"/>
+                            <Button Content="Select Photo" Width="82" VerticalAlignment="Center" Margin="0,1"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+            <StackPanel Height="24" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding UpdateSourceTrigger=PropertyChanged, Path=PrintStyleScannedImages}" Content="    Print Style Scanned Images" VerticalAlignment="Center" FlowDirection="RightToLeft" Margin="10,3,18,5" Width="178"/>
+            </StackPanel>
+            <StackPanel Height="24" Orientation="Horizontal"/>
+            <StackPanel Height="24" Orientation="Horizontal">
+                <Button Content="General Scanned Images" Width="139" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,1,0,1"/>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>

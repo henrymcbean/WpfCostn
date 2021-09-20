@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfCostn.ShrinkageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Percentage Shrinkage" Height="129" Width="269" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Height="79" Margin="10,10,0,0" VerticalAlignment="Top" Width="241">
+            <StackPanel Height="38" Orientation="Horizontal" Margin="0,0,0,12">
+                <TextBlock TextWrapping="Wrap" Text="Enter Percentage Shrinkage" VerticalAlignment="Center" Margin="0,11" Width="162"/>
+                <TextBox x:Name="txtShrinkage" TextWrapping="Wrap" Width="62" VerticalAlignment="Center" Margin="0,8" TextAlignment="Right"/>
+                <Label x:Name="lblPerc4" Content="%" Margin="0,8,-1,8" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="11" Width="19" Height="22"/>
+            </StackPanel>
+            <StackPanel Height="36" Orientation="Horizontal">
+                <Button x:Name="btnCancel" Content="Cancel" Width="75" VerticalAlignment="Center" Margin="0,0,8,0" Click="btnCancel_Click"/>
+                <Button x:Name="btnOk" Content="OK" Width="75" VerticalAlignment="Center" Margin="0,7" Click="btnOk_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>

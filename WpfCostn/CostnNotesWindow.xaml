@@ -1,0 +1,9 @@
+﻿<Window x:Class="WpfCostn.CostnNotesWindow"
+        xmlns:lib="clr-namespace:WpfWgmateControlLibrary;assembly=WpfWgmateControlLibrary"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Notes" Height="453" Width="633" WindowStartupLocation="CenterOwner" Loaded="Window_Loaded" Icon="wcostn.png" ShowInTaskbar="False" ResizeMode="NoResize">
+    <Grid>
+        <lib:CostnStyleNotesControl x:Name="uscNotes"/>
+    </Grid>
+</Window>
